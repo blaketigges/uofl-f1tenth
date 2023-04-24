@@ -1,0 +1,8 @@
+prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/devel
+
+Name: serial
+Description: Description of serial
+Version: 1.2.1
+Cflags: -I/home/aimslab/Desktop/f1tenth/f1tenth_ws/src/f1tenth_system/serial/include
+Libs: -L${prefix}/lib -lserial -lrt -lpthread
+Requires: 

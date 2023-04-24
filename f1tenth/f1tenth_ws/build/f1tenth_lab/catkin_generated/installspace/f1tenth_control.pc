@@ -1,0 +1,8 @@
+prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/install
+
+Name: f1tenth_control
+Description: Description of f1tenth_control
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: message_filters ackermann_msgs geometry_msgs nav_msgs roscpp rospy sensor_msgs std_msgs message_runtime

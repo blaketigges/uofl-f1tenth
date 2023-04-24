@@ -1,0 +1,8 @@
+prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/devel
+
+Name: FTG
+Description: Description of FTG
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib -llab4
+Requires: system_roscpp rospy sys math __future__ numpy std_msgs sensor_msgs ackermann_msgs geometry_msgs nav_msgs

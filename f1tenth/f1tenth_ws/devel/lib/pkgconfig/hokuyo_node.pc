@@ -1,0 +1,8 @@
+prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/devel
+
+Name: hokuyo_node
+Description: Description of hokuyo_node
+Version: 1.7.8
+Cflags: -I/home/aimslab/Desktop/f1tenth/f1tenth_ws/devel/include -I/home/aimslab/Desktop/f1tenth/f1tenth_ws/src/f1tenth_system/hokuyo_node/include
+Libs: -L${prefix}/lib -llibhokuyo
+Requires: rosconsole

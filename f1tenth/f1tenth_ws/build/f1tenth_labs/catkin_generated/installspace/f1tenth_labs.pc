@@ -1,0 +1,8 @@
+prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/install
+
+Name: f1tenth_labs
+Description: Description of f1tenth_labs
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
