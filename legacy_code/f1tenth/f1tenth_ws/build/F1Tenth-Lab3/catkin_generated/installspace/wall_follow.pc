@@ -1,8 +1,0 @@
-prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/install
-
-Name: wall_follow
-Description: Description of wall_follow
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

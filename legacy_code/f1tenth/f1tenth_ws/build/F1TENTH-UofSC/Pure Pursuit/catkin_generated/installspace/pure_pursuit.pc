@@ -1,8 +1,0 @@
-prefix=/home/aimslab/Desktop/f1tenth/f1tenth_ws/install
-
-Name: pure_pursuit
-Description: Description of pure_pursuit
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
