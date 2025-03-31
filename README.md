@@ -1,2 +1,2 @@
-# uofl-f1tenth
-Spring 2023 Capstone Project files
+# UofL-F1Tenth
+Spring 2025 Capstone Project files
