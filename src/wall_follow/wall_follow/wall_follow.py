@@ -38,8 +38,8 @@ class WallFollow(Node):
         self.ANGLE_RANGE = 270 # Hokuyo 10LX has 270 degrees scan
         self.DESIRED_DISTANCE_RIGHT = 0.9 # meters
         self.DESIRED_DISTANCE_LEFT = 0.85
-        self.VELOCITY = 5.5 # meters per second
-        self.CAR_LENGTH = 1.0 # Traxxas Rally is 20 inches or 0.5 meters
+        self.VELOCITY = 1.0 # meters per second
+        self.CAR_LENGTH = .45 # Traxxas Rally is 20 inches or 0.5 meters
 
     def get_range(self, range_data, angle):
         """
@@ -103,17 +103,31 @@ class WallFollow(Node):
         drive_msg.header.stamp = self.get_clock().now().to_msg()
         drive_msg.header.frame_id = "laser"
         drive_msg.drive.steering_angle = -angle
-        if abs(angle) > np.radians(0) and abs(angle) <= np.radians(10):
+        if abs(angle) > np.radians(0) and abs(angle) <= np.radians(10): # straight
             drive_msg.drive.speed = velocity
-        elif abs(angle) > np.radians(10) and abs (angle) <= np.radians(20):
-            drive_msg.drive.speed = 1.0
-        else:
-            drive_msg.drive.speed = 0.5
+        elif abs(angle) > np.radians(10) and abs (angle) <= np.radians(20): # slight turn
+            drive_msg.drive.speed = 0.75 * velocity
+        else: # hard turn
+            drive_msg.drive.speed = 0.5 * velocity
         self.publisher.publish(drive_msg)
 
     def followLeft(self, data, leftDist):
-        front_scan_angle = 125
-        back_scan_angle = 180
+        """
+        Calculate the error between desired and actual distance to the left wall.
+        
+        This method uses laser scan data to determine the robot's current orientation and
+        distance relative to the left wall, then calculates the difference from the desired
+        distance.
+        
+        Parameters:
+            data (LaserScan): The laser scan data containing distance measurements
+            leftDist (float): The desired distance to maintain from the left wall
+            
+        Returns:
+            float: Error value representing the difference between desired and actual distance.
+        """
+        front_scan_angle = 125 # a
+        back_scan_angle = 180 # b
         teta = math.radians(abs(front_scan_angle - back_scan_angle))
         front_scan_dist = self.get_range(data, front_scan_angle)
         back_scan_dist = self.get_range(data, back_scan_angle)
